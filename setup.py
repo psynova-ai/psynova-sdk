@@ -7,9 +7,6 @@ with open("README.md") as f:
 with open("psynova/version.txt") as f:
     version = f.read().strip()
 
-with open("requirements.txt") as f:
-    install_requires = [line.strip() for line in f]
-
 setup(
     name="psynova",
     version=version,
@@ -27,7 +24,10 @@ setup(
     author_email="dev@psynova.ai",
     packages=setuptools.find_packages(),
     package_data={"psynova": ["version.txt"]},
-    install_requires=install_requires,
+    install_requires=[
+        "requests==2.31.0",
+        "rich==13.9.4"
+    ],
     dependency_links=[],
     python_requires=">=3.10",
     url="https://psynova.github.io/",

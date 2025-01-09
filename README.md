@@ -45,7 +45,7 @@ Psynova is a Python-based AI agent framework that enables developers to create, 
 ![Psynova Intro](images/intro.png)
 
 ```bash
-pip install psynova
+pip install psynova==1.2
 
 ```
 

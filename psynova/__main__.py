@@ -40,8 +40,8 @@ def interactive():
 
         if choice == "1":
             name = Prompt.ask("\n[yellow]Enter agent name[/yellow]")
-            version_id = int(Prompt.ask("[yellow]Enter version ID[/yellow]"))
-            
+            version_id = int(Prompt.ask("[yellow]List of version IDs:\n1 - 3.1 405B Instruct Turbo\n2 - 3.3 70B Instruct Turbo\n3 - 3.1 70B Instruct Turbo\n18 - QwQ-32B-Preview\n19 - 2.5 Coder 32B Instruct Expert\n20 - Qwen 2 Instruct (72B)\n21 - Instruct (27B)\n22 - Instruct (9B)\n23 - Instruct (2B)\n27 - Chat (67B)\n30 - Typhoon 1.5X 70B-awq\n31 - Nemotron 70B\nEnter version ID (example: 1)[/yellow]"))
+
             try:
                 agent_id = client.create_agent(name=name, version_id=version_id)
                 console.print(f"\n[green]Successfully created agent with ID: {agent_id}[/green]")
