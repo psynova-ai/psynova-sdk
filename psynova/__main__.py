@@ -22,9 +22,10 @@ def interactive():
 
     # Get private key
     private_key = Prompt.ask("[yellow]Please enter your private key[/yellow]")
-    
+
     try:
         client = PsynovaClient(private_key)
+        client._login()
         console.print("[green]Successfully connected![/green]\n")
     except Exception as e:
         console.print(f"[red]Error connecting: {str(e)}[/red]")
@@ -40,7 +41,7 @@ def interactive():
 
         if choice == "1":
             name = Prompt.ask("\n[yellow]Enter agent name[/yellow]")
-            version_id = int(Prompt.ask("[yellow]List of version IDs:\n1 - 3.1 405B Instruct Turbo\n2 - 3.3 70B Instruct Turbo\n3 - 3.1 70B Instruct Turbo\n18 - QwQ-32B-Preview\n19 - 2.5 Coder 32B Instruct Expert\n20 - Qwen 2 Instruct (72B)\n21 - Instruct (27B)\n22 - Instruct (9B)\n23 - Instruct (2B)\n27 - Chat (67B)\n30 - Typhoon 1.5X 70B-awq\n31 - Nemotron 70B\nEnter version ID (example: 1)[/yellow]"))
+            version_id = int(Prompt.ask("[yellow]List of version IDs:\n1 - 3.1 405B Instruct Turbo\n2 - 3.3 70B Instruct Turbo\n3 - 3.1 70B Instruct Turbo\n4 - QwQ-32B-Preview\n5 - 2.5 Coder 32B Instruct Expert\n6 - Qwen 2 Instruct (72B)\n7 - Instruct (27B)\n8 - Instruct (9B)\n9 - Instruct (2B)\n10 - Chat (67B)\n11 - Typhoon 1.5X 70B-awq\n12 - Nemotron 70B\nEnter version ID (example: 1)[/yellow]"))
 
             try:
                 agent_id = client.create_agent(name=name, version_id=version_id)
